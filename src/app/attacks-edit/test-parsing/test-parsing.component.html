@@ -1,0 +1,9 @@
+<div class="container">
+  <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <textarea rows="10" cols="1000" placeholder="Text" matInput formControlName="text"></textarea>
+    </mat-form-field>
+    <hr>
+    <button type="submit" mat-raised-button color="primary">Parsing</button>
+  </form>
+</div>

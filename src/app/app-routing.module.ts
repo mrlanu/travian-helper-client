@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {TestParsingComponent} from './test-parsing/test-parsing.component';
+import {AttacksEditComponent} from './attacks-edit/attacks-edit.component';
 
 const routes: Routes = [
-  {path: 'test-parsing', component: TestParsingComponent},
-  {path: '**', redirectTo: '/test-parsing'}
+  {path: 'attacks-edit', component: AttacksEditComponent, children: []},
+  {path: '**', redirectTo: '/attacks-edit'}
 ];
 
 @NgModule({

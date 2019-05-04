@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../environments/environment';
+import {Attack} from './models/attack.model';
+import {Subject} from 'rxjs';
 
 export interface AttacksString {
   text: string;
@@ -10,17 +12,20 @@ export interface AttacksString {
 export class HttpService {
 
   baseUrl = environment.baseUrl;
+  attcksListChanged = new Subject<Attack[]>();
+  attacksList: Attack[] = [];
 
   constructor(private httpClient: HttpClient) { }
 
+  getAttacksList() {
+    this.attcksListChanged.next(this.attacksList);
+  }
+
   sendForParsing(text: AttacksString) {
     const url = `${this.baseUrl}/attacks`;
-    /*const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-        'Authorization': 'Basic ' + btoa('my-trusted-client:secret')
-      })
-    };*/
-    return this.httpClient.post(url, text);
+    this.httpClient.post<Attack[]>(url, text).subscribe(attacks => {
+      this.attacksList.push(...attacks);
+      this.attcksListChanged.next(this.attacksList);
+    });
   }
 }

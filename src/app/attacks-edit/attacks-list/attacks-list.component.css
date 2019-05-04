@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+  opacity: 0.95;
+}
+
+td, th {
+  font-size: 11px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
