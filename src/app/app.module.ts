@@ -11,15 +11,21 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
 import { AttacksListComponent } from './attacks-edit/attacks-list/attacks-list.component';
 import { AttacksEditComponent } from './attacks-edit/attacks-edit.component';
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestParsingComponent,
     AttacksListComponent,
-    AttacksEditComponent
+    AttacksEditComponent,
+    HeaderComponent,
+    SidenavListComponent
   ],
   imports: [
+    FlexLayoutModule,
     MaterialModule,
     BrowserAnimationsModule,
     BrowserModule,
