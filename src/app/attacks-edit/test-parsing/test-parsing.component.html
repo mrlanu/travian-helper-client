@@ -1,10 +1,13 @@
 <div class="container">
   <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
-      <textarea rows="5" cols="1000" placeholder="Insert your attacks here" matInput formControlName="text"></textarea>
+      <textarea rows="5" cols="1000" placeholder="Insert your attacks here" matInput formControlName="text" #test></textarea>
     </mat-form-field>
     <div style="text-align: right">
-      <button type="submit" mat-raised-button color="primary">Parsing</button>
+      <button class="my_button" type="submit" [disabled]="testForm.invalid" mat-raised-button color="primary">Parsing</button>
     </div>
   </form>
+  <br>
+  <hr>
+  <br>
 </div>

@@ -49,7 +49,12 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr class="transaction" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectTransaction(row)"></tr>
   </table>
-
   <mat-paginator [pageSize]="12"></mat-paginator>
+  <div class="button__container">
+    <button class="my_button"
+            type="button"
+            [disabled]="dataSource.data.length == 0"
+            mat-raised-button color="primary" (click)="onSave()">Send</button>
+  </div>
 </div>
 

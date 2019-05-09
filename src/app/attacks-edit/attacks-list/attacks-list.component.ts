@@ -45,6 +45,10 @@ export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
+  onSave() {
+    this.httpService.sendForSave(this.dataSource.data);
+  }
+
   ngOnDestroy(): void {
     this.componentSubs.forEach(sub => {
       sub.unsubscribe();

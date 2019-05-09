@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpService} from '../../http.service';
 import {Attack} from '../../models/attack.model';
 import {Subscription} from 'rxjs';
@@ -20,13 +20,13 @@ export class TestParsingComponent implements OnInit, OnDestroy {
     this.componentSubs.push(this.httpService.attcksListChanged.subscribe((attacks: Attack[]) => {
     }));
     this.testForm = new FormGroup({
-      text: new FormControl()
+      text: new FormControl(null, Validators.required)
     });
   }
 
   onSubmit() {
     this.httpService.sendForParsing(this.testForm.value);
-    //this.testForm.patchValue({text: ''});
+    this.testForm.reset();
   }
 
   ngOnDestroy(): void {

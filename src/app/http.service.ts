@@ -22,10 +22,17 @@ export class HttpService {
   }
 
   sendForParsing(text: AttacksString) {
-    const url = `${this.baseUrl}/attacks`;
+    const url = `${this.baseUrl}/parse-attacks`;
     this.httpClient.post<Attack[]>(url, text).subscribe(attacks => {
       this.attacksList.push(...attacks);
       this.attcksListChanged.next(this.attacksList);
+    });
+  }
+
+  sendForSave(attacks: Attack[]) {
+    const url = `${this.baseUrl}/attacks`;
+    this.httpClient.post(url, attacks).subscribe(resp => {
+      console.log(resp);
     });
   }
 }
