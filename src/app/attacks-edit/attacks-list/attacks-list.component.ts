@@ -13,7 +13,7 @@ import {Time} from '@angular/common';
 })
 export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  displayedColumns: string[] = ['accountName', 'attackedVillage', 'duration', 'arrivedTime', 'attackingVillage'];
+  displayedColumns: string[] = ['attackedAccountName', 'attackedVillage', 'attackingAccName', 'attackingAllianceName', 'attackingVillage', 'duration', 'arrivedTime'];
   dataSource = new MatTableDataSource<Attack>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

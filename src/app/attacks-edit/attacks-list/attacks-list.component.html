@@ -1,10 +1,10 @@
 <div class="container">
   <table mat-table [dataSource]="dataSource" matSort matSortActive="date" matSortDirection="desc">
 
-    <!-- Account Name Column -->
-    <ng-container matColumnDef="accountName">
+    <!-- Attacked Acc Name Column -->
+    <ng-container matColumnDef="attackedAccountName">
       <th mat-header-cell *matHeaderCellDef> Account </th>
-      <td mat-cell *matCellDef="let row"> {{row.accountName}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.attackedAccountName}} </td>
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
@@ -12,6 +12,26 @@
     <ng-container matColumnDef="attackedVillage">
       <th mat-header-cell *matHeaderCellDef> Village </th>
       <td mat-cell *matCellDef="let row"> {{row.attackedVillage}} </td>
+    </ng-container>
+
+    <!-- Attacking Acc Name Column -->
+    <ng-container matColumnDef="attackingAccName">
+      <th mat-header-cell *matHeaderCellDef> Attacker </th>
+      <td mat-cell *matCellDef="let row"> {{row.attackingAccName}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Attacking Alliance Column -->
+    <ng-container matColumnDef="attackingAllianceName">
+      <th mat-header-cell *matHeaderCellDef> Alliance </th>
+      <td mat-cell *matCellDef="let row"> {{row.attackingAllianceName}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Attacking Village Column -->
+    <ng-container matColumnDef="attackingVillage">
+      <th mat-header-cell *matHeaderCellDef> Village </th>
+      <td mat-cell *matCellDef="let row"> {{row.attackingVillage}} </td>
     </ng-container>
 
     <!-- Duration Column -->
@@ -24,12 +44,6 @@
     <ng-container matColumnDef="arrivedTime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Arrived </th>
       <td mat-cell *matCellDef="let row"> {{row.arrivedTime}} </td>
-    </ng-container>
-
-    <!-- Attacking Village Column -->
-    <ng-container matColumnDef="attackingVillage">
-      <th mat-header-cell *matHeaderCellDef> Attacker </th>
-      <td mat-cell *matCellDef="let row"> {{row.attackingVillage}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

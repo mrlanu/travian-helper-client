@@ -1,7 +1,9 @@
 import {Time} from '@angular/common';
 
 export interface Attack {
-  accountName: string;
+  attackedAccountName: string;
+  attackingAccName: string;
+  attackingAllianceName: string;
   attackingVillage: string;
   attackedVillage: string;
   attackingVillageX: number;

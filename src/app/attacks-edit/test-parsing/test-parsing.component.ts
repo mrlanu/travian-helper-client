@@ -18,7 +18,6 @@ export class TestParsingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.componentSubs.push(this.httpService.attcksListChanged.subscribe((attacks: Attack[]) => {
-      console.log(attacks);
     }));
     this.testForm = new FormGroup({
       text: new FormControl()
@@ -27,6 +26,7 @@ export class TestParsingComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.httpService.sendForParsing(this.testForm.value);
+    //this.testForm.patchValue({text: ''});
   }
 
   ngOnDestroy(): void {
