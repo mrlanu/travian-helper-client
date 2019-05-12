@@ -4,6 +4,7 @@ export interface Attack {
   attackedAccountName: string;
   attackingAccName: string;
   attackingAccId: number;
+  attackingVillageId: number;
   attackingAllianceName: string;
   attackingVillage: string;
   attackedVillage: string;
