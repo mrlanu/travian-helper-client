@@ -1,17 +1,21 @@
 import {Time} from '@angular/common';
 
 export interface Attack {
-  attackedAccountName: string;
-  attackingAccName: string;
-  attackingAccId: number;
-  attackingVillageId: number;
-  attackingAllianceName: string;
-  attackingVillage: string;
-  attackedVillage: string;
-  attackingVillageX: number;
-  attackingVillageY: number;
-  attackedVillageX: number;
-  attackedVillageY: number;
-  duration: Time;
-  arrivedTime: Time;
+  offer: Village;
+  deffer: Village;
+  time: Time;
+}
+
+export interface Player {
+  id: number;
+  name: string;
+  alliance: string;
+}
+
+export interface Village {
+  id: number;
+  name: string;
+  x: number;
+  y: number;
+  player: Player;
 }

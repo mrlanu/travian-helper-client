@@ -4,7 +4,6 @@ import {Subscription} from 'rxjs';
 import {Attack} from '../../models/attack.model';
 import {HttpService} from '../../http.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Time} from '@angular/common';
 
 @Component({
   selector: 'app-attacks-list',
@@ -13,7 +12,8 @@ import {Time} from '@angular/common';
 })
 export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  displayedColumns: string[] = ['attackedAccountName', 'attackedVillage', 'attackingAccName', 'attackingAllianceName', 'attackingVillage', 'duration', 'arrivedTime'];
+  displayedColumns: string[] = ['attackedAccountName', 'attackedVillage', 'attackingAccName',
+    'attackingAllianceName', 'attackingVillage', 'duration', 'arrivedTime'];
   dataSource = new MatTableDataSource<Attack>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -27,6 +27,7 @@ export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.componentSubs.push(this.httpService.attcksListChanged
       .subscribe((attacks: Attack[]) => {
         this.dataSource.data = attacks;
+        console.log(attacks);
       }));
     this.httpService.getAttacksList();
 
