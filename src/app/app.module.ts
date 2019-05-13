@@ -14,6 +14,7 @@ import { AttacksEditComponent } from './attacks-edit/attacks-edit.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { ClockComponent } from './shared/clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AttacksListComponent,
     AttacksEditComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    ClockComponent
   ],
   imports: [
     FlexLayoutModule,

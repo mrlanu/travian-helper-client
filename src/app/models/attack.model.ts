@@ -1,9 +1,8 @@
-import {Time} from '@angular/common';
-
 export interface Attack {
   offer: Village;
   deffer: Village;
-  time: Time;
+  time: Date;
+  userId: number;
 }
 
 export interface Player {

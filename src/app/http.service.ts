@@ -35,4 +35,9 @@ export class HttpService {
       console.log(resp);
     });
   }
+
+  getServerTime() {
+    const url = `${this.baseUrl}/time`;
+    return this.httpClient.get(url);
+  }
 }
