@@ -1,5 +1,4 @@
 <div class="container">
-  <app-clock></app-clock>
   <table mat-table [dataSource]="dataSource" matSort matSortActive="date" matSortDirection="desc">
 
     <!-- Attacked Acc Name Column -->
@@ -38,7 +37,7 @@
     <!-- Duration Column -->
     <ng-container matColumnDef="duration">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
-      <td mat-cell *matCellDef="let row"> {{''}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.duration}} </td>
     </ng-container>
 
     <!-- Arrived Time Column -->

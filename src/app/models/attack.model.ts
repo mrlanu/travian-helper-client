@@ -2,6 +2,8 @@ export interface Attack {
   offer: Village;
   deffer: Village;
   time: Date;
+  duration: Date;
+  parsingTime: Date;
   userId: number;
 }
 

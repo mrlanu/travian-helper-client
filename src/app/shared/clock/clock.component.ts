@@ -15,15 +15,10 @@ export class ClockComponent implements OnInit, OnDestroy {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.componentSubs.push(this.httpService.getServerTime()
-      .subscribe((time: string) => {
-        console.log(time);
       setInterval(() => {
         const d = new Date();
-        d.setHours(+time.split(':')[0]);
-        this.serverTime = d.toLocaleTimeString('en-US', { hour12: false });
+        this.serverTime = d.toLocaleTimeString('en-US', { hour12: false, timeZone: 'Europe/Moscow'});
       }, 1000);
-    }));
   }
 
   ngOnDestroy(): void {
