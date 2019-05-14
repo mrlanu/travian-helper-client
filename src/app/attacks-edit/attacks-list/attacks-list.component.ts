@@ -50,6 +50,17 @@ export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.httpService.sendForSave(this.dataSource.data);
   }
 
+  countTimeLeft(attackTime: string): string {
+    const d = new Date();
+    const serverTime = new Date(d.toLocaleString('en-US', { hour12: false, timeZone: 'Europe/Moscow'}));
+    const attack = new Date(attackTime);
+    const diff = new Date(attack - serverTime);
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    return `${hours}:${minutes}:${seconds}`;
+  }
+
   ngOnDestroy(): void {
     this.componentSubs.forEach(sub => {
       sub.unsubscribe();
