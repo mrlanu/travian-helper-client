@@ -37,13 +37,13 @@
     <!-- Duration Column -->
     <ng-container matColumnDef="duration">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
-      <td mat-cell *matCellDef="let row"> {{countTimeLeft(row.time)}} </td>
+      <td mat-cell *matCellDef="let row"> {{countTimeLeft(row.timeAttack)}} </td>
     </ng-container>
 
     <!-- Arrived Time Column -->
     <ng-container matColumnDef="arrivedTime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Arrived </th>
-      <td mat-cell *matCellDef="let row"> {{row.time | date:'HH:mm:ss'}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.timeAttack | date:'HH:mm:ss'}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -54,7 +54,7 @@
     <button class="my_button"
             type="button"
             [disabled]="dataSource.data.length == 0"
-            mat-raised-button color="primary" (click)="onSave()">Send</button>
+            mat-raised-button color="primary" (click)="onSend()">Send</button>
   </div>
 </div>
 

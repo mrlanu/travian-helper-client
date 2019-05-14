@@ -46,8 +46,10 @@ export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  onSave() {
+  onSend() {
     this.httpService.sendForSave(this.dataSource.data);
+    // clear data table after sending
+    this.dataSource.data = [];
   }
 
   countTimeLeft(attackTime: string): string {

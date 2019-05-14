@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="testForm"  #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
     <mat-form-field>
       <textarea rows="5" cols="1000" placeholder="Insert your attacks here" matInput formControlName="text" #test></textarea>
     </mat-form-field>

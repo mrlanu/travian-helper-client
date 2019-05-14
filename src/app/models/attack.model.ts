@@ -1,7 +1,7 @@
 export interface Attack {
   offer: Village;
   deffer: Village;
-  time: Date;
+  timeAttack: Date;
   duration: Date;
   parsingTime: Date;
   userId: number;

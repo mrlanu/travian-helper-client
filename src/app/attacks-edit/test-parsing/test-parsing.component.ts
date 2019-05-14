@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {HttpService} from '../../http.service';
 import {Attack} from '../../models/attack.model';
 import {Subscription} from 'rxjs';
@@ -24,8 +24,9 @@ export class TestParsingComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSubmit() {
+  onSubmit(formDirective: FormGroupDirective) {
     this.httpService.sendForParsing(this.testForm.value);
+    formDirective.resetForm();
     this.testForm.reset();
   }
 
