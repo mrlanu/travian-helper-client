@@ -1,5 +1,6 @@
 table {
-  min-width: 1000px;
+  width: 100%;
+  min-width: 700px;
   opacity: 0.95;
 }
 
@@ -8,6 +9,7 @@ th {
 }
 
 .container {
-  width: 100%;
-  overflow-x: scroll;
+  margin: auto;
+  width: 95%;
+  overflow-x: auto;
 }
