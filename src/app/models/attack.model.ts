@@ -20,3 +20,13 @@ export interface Village {
   y: number;
   player: Player;
 }
+
+export interface CrossAttack {
+  defer: Village;
+  offerAttacks: OfferAttack[];
+}
+
+export interface OfferAttack {
+  offer: Village;
+  attacks: Attack[];
+}

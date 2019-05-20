@@ -17,7 +17,7 @@ export class TestParsingComponent implements OnInit, OnDestroy {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.componentSubs.push(this.httpService.attcksListChanged.subscribe((attacks: Attack[]) => {
+    this.componentSubs.push(this.httpService.attacksListChanged.subscribe((attacks: Attack[]) => {
     }));
     this.testForm = new FormGroup({
       text: new FormControl(null, Validators.required)

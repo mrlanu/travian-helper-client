@@ -15,6 +15,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ClockComponent } from './shared/clock/clock.component';
+import { CrossTableComponent } from './cross-table/cross-table.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ClockComponent } from './shared/clock/clock.component';
     AttacksEditComponent,
     HeaderComponent,
     SidenavListComponent,
-    ClockComponent
+    ClockComponent,
+    CrossTableComponent
   ],
   imports: [
     FlexLayoutModule,

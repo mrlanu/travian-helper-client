@@ -24,7 +24,7 @@ export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.componentSubs.push(this.httpService.attcksListChanged
+    this.componentSubs.push(this.httpService.attacksListChanged
       .subscribe((attacks: Attack[]) => {
         this.dataSource.data = attacks;
         console.log(attacks);
@@ -49,6 +49,7 @@ export class AttacksListComponent implements OnInit, OnDestroy, AfterViewInit {
   onSend() {
     this.httpService.sendForSave(this.dataSource.data);
     // clear data table after sending
+    this.httpService.getCrossAttacks();
     this.dataSource.data = [];
   }
 
