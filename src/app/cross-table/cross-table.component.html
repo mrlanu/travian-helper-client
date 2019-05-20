@@ -2,15 +2,21 @@
   <table mat-table [dataSource]="dataSource" matSort matSortActive="date" matSortDirection="desc">
 
     <!-- Defer Column -->
-    <ng-container matColumnDef="attackedVillage">
-      <th mat-header-cell *matHeaderCellDef> Defer </th>
-      <td mat-cell *matCellDef="let row"> {{row.defer?.name}} </td>
+    <ng-container matColumnDef="attackedVillage" sticky>
+      <th mat-header-cell *matHeaderCellDef> Defer \ Offer </th>
+      <td mat-cell *matCellDef="let row">
+        <div>{{ 'Account: ' + row.defer.player.name}}</div>
+        <div>{{'Village: ' + row.defer.name}}</div>
+      </td>
     </ng-container>
 
     <!-- Attacking Acc Name Column -->
-    <ng-container *ngFor="let a of dynamicColumnDefinition; let i = index;" [matColumnDef]="a">
-      <th mat-header-cell *matHeaderCellDef> Attacker </th>
-      <td mat-cell *matCellDef="let row"> <div *ngFor="let att of row.offerAttacks[i].attacks">{{ att.timeAttack }}</div></td>
+    <ng-container *ngFor="let a of dynamicColumnDefinition; let i = index;" [matColumnDef]="a.definition">
+      <th mat-header-cell *matHeaderCellDef>
+        <div>{{ 'Account: ' + a.account }}</div>
+        <div>{{ 'Village: ' + a.header }}</div>
+      </th>
+      <td mat-cell *matCellDef="let row"> <div *ngFor="let att of row.offerAttacks[i].attacks">{{ att.timeAttack | date:'HH:mm:ss'}}</div></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="allColumnsDefinition"></tr>

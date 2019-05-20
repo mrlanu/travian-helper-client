@@ -16,7 +16,7 @@ export class CrossTableComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<CrossAttack>();
 
   allColumnsDefinition: string[] = ['attackedVillage'];
-  dynamicColumnDefinition: string[] = [];
+  dynamicColumnDefinition: any[] = [];
 
 
   constructor(private httpService: HttpService) { }
@@ -24,11 +24,11 @@ export class CrossTableComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.componentSubs.push(this.httpService.crossAttacksChanged
       .subscribe(crossAttacks => {
-        for (const i of crossAttacks[0].offerAttacks) {
-          this.dynamicColumnDefinition.push(i.offer.id.toString());
+        for (const i of crossAttacks[0].offerAttacks.reverse()) {
+          this.dynamicColumnDefinition.push({definition: i.offer.id.toString(), header: i.offer.name, account: i.offer.player.name});
         }
-        this.allColumnsDefinition = [...this.allColumnsDefinition, ...this.dynamicColumnDefinition];
-      this.dataSource.data = crossAttacks;
+        this.allColumnsDefinition = [...this.allColumnsDefinition, ...this.dynamicColumnDefinition.map(p => p.definition).reverse()];
+      this.dataSource.data = crossAttacks.reverse();
       console.log(this.dataSource.data);
     }));
     this.httpService.getCrossAttacks();

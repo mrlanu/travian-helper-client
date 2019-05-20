@@ -1,4 +1,13 @@
 table {
-  width: 100%;
+  min-width: 1000px;
   opacity: 0.95;
+}
+
+th {
+  font-size: 14px;
+}
+
+.container {
+  width: 100%;
+  overflow-x: scroll;
 }
